@@ -3,6 +3,8 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import {AboutPage} from "./pages/AboutPage";
 import {HomePage} from "./pages/HomePage";
 import {VansPage} from "./pages/VansPage";
+import "./server.js";
+import {VanDetail} from "./pages/VanDetail";
 
 function App() {
 	return (
@@ -18,6 +20,7 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/vans" element={<VansPage />} />
+				<Route path="/vans/:id" element={<VanDetail />} />
 			</Routes>
 		</BrowserRouter>
 	);
