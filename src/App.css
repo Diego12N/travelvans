@@ -6,7 +6,6 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #fff7ed;
 	font-family: "Inter", sans-serif;
 }
 
@@ -19,6 +18,7 @@ body {
 	scrollbar-width: none;
 	max-width: 768px;
 	margin: auto;
+	background-color: #fff7ed;
 }
 
 header {

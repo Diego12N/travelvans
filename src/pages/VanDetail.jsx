@@ -6,7 +6,6 @@ export function VanDetail() {
 	const params = useParams();
 
 	useEffect(() => {
-		console.log(params);
 		fetch(`/api/vans/${params.id}`)
 			.then((res) => res.json())
 			.then((data) => setVan(data.vans));
