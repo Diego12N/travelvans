@@ -1,0 +1,38 @@
+import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+
+export function HostVans() {
+	const [vans, setVans] = useState([]);
+
+	useEffect(() => {
+		fetch("/api/host/vans")
+			.then((res) => res.json())
+			.then((data) => setVans(data.vans));
+
+		console.log(vans);
+	}, []);
+
+	return (
+		<section>
+			<ul className="host-vans-list">
+				{vans ? (
+					vans.map((van) => {
+						return (
+							<li className="host-vans-item" key={van.id}>
+								<Link className="host-vans-link" to={`/host/vans/${van.id}`}>
+									<img src={van.imageUrl} alt="" />
+									<div>
+										<h3>{van.name}</h3>
+										<span>{van.price}/day</span>
+									</div>
+								</Link>
+							</li>
+						);
+					})
+				) : (
+					<h2>Loading...</h2>
+				)}
+			</ul>
+		</section>
+	);
+}
