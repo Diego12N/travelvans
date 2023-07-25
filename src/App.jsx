@@ -12,6 +12,9 @@ import { Reviews } from "./pages/Host/Reviews";
 import { HostLayout } from "./components/HostLayout";
 import { HostVans } from "./pages/Host/HostVans";
 import { HostVansDetail } from "./pages/Host/HostVansDetail";
+import { HostVanInfo } from "./pages/Host/HostVanInfo";
+import { HostVanPricing } from "./pages/Host/HostVanPricing";
+import { HostVanPhotos } from "./pages/Host/HostVanPhotos";
 
 function App() {
   return (
@@ -32,7 +35,11 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVansDetail />}></Route>
+            <Route path="vans/:id" element={<HostVansDetail />}>
+              <Route index element={<HostVanInfo />} />
+              <Route path="pricing" element={<HostVanPricing />} />
+              <Route path="photos" element={<HostVanPhotos />} />
+            </Route>
             <Route path="reviews" element={<Reviews />} />
             {/* Los path no necesitan la ruta absoluta, ya que en este contexto (Anidadas dentro de Host) 
             no requieren su url completa sino que pueden utilizar la relativa es decir /host/income => income */}
