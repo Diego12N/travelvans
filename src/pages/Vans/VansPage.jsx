@@ -33,7 +33,7 @@ export function VansPage() {
   const vanItem = vansFiltered.map((van) => {
     return (
       <div key={van.id} className="van-tile">
-        <Link to={van.id} state={{ search: `?${searchParams.toString()}` }}>
+        <Link to={van.id} state={{ search: `?${searchParams.toString()}`, type: searchParams.get("type") }}>
           <img src={van.imageUrl} alt={van.name} />
           <div className="van-info">
             <h3>{van.name}</h3>

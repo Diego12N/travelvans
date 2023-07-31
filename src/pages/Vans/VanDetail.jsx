@@ -9,6 +9,7 @@ export function VanDetail() {
   // al utilizar location, me permite mantener el estado que envio como prop aunque recargue la pagina
 
   const search = location.state?.search || "";
+  const type = location.state?.type || "all";
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -18,8 +19,8 @@ export function VanDetail() {
 
   return (
     <div className="van-detail-container">
-      <Link to={`..${search}`} relative="path" className="back-button">
-        &larr;<span> Back to all vans</span>
+      <Link to={`..${"?" + search}`} relative="path" className="back-button">
+        &larr;<span>Back to {`${type}`} vans</span>
       </Link>
       {van ? (
         <div className="van-detail">

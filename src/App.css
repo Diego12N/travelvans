@@ -435,6 +435,18 @@ a.host-vans-link {
   border-radius: 5px;
 }
 
+/* Not Found Page*/
+
+.not-found-container {
+  padding-inline: 26px;
+}
+
+.not-found-container .link-button {
+  width: 100%;
+  background-color: #161616;
+  color: white;
+}
+
 /* Footer Styles*/
 
 .vans-footer {
