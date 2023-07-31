@@ -17,7 +17,8 @@ export function HostVans() {
           vans.map((van) => {
             return (
               <li className="host-vans-item" key={van.id}>
-                <Link className="host-vans-link" to={`/host/vans/${van.id}`}>
+                <Link className="host-vans-link" to={van.id}>
+                  {/* Puedo utilizar un path relative to={van.id} debido a que en el contexto en el que se encuentra el link, no require del absolute path (Rutas anidadas /host/vans/) */}
                   <img src={van.imageUrl} alt="" />
                   <div>
                     <h3>{van.name}</h3>
