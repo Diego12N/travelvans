@@ -1,20 +1,19 @@
 import {Route, createBrowserRouter, createRoutesFromElements} from "react-router-dom";
-import {AboutPage} from "./pages/AboutPage";
-import {HomePage} from "./pages/HomePage";
-import {VansPage} from "./pages/Vans/VansPage";
-import "./server.js";
-import {VanDetail} from "./pages/Vans/VanDetail";
-import {Layout} from "./components/Layout";
-import {Dashboard} from "./pages/Host/Dashboard";
-import {Income} from "./pages/Host/Income";
-import {Reviews} from "./pages/Host/Reviews";
-import {HostLayout} from "./components/HostLayout";
-import {HostVans} from "./pages/Host/HostVans";
-import {HostVansDetail} from "./pages/Host/HostVansDetail";
-import {HostVanInfo} from "./pages/Host/HostVanInfo";
-import {HostVanPricing} from "./pages/Host/HostVanPricing";
-import {HostVanPhotos} from "./pages/Host/HostVanPhotos";
-import {NotFound} from "./pages/NotFound";
+import {AboutPage} from "../pages/AboutPage";
+import {HomePage} from "../pages/HomePage";
+import {VansPage} from "../pages/Vans/VansPage";
+import {VanDetail} from "../pages/Vans/VanDetail";
+import {Layout} from "../components/Layout";
+import {Dashboard} from "../pages/Host/Dashboard";
+import {Income} from "../pages/Host/Income";
+import {Reviews} from "../pages/Host/Reviews";
+import {HostLayout} from "../components/HostLayout";
+import {HostVans} from "../pages/Host/HostVans";
+import {HostVansDetail} from "../pages/Host/HostVansDetail";
+import {HostVanInfo} from "../pages/Host/HostVanInfo";
+import {HostVanPricing} from "../pages/Host/HostVanPricing";
+import {HostVanPhotos} from "../pages/Host/HostVanPhotos";
+import {NotFound} from "../pages/NotFound";
 
 export const router = createBrowserRouter(
 	createRoutesFromElements(
