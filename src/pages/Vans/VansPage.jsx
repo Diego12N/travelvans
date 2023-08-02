@@ -1,11 +1,16 @@
 import {useEffect, useState} from "react";
-import {Link, useSearchParams} from "react-router-dom";
+import {Link, useLoaderData, useSearchParams} from "react-router-dom";
 import {getVans} from "../../api";
 
+export const loader = async () => {
+	const data = await getVans();
+	return data;
+};
+
 export function VansPage() {
-	const [vans, setVans] = useState([]);
+	//const [vans, setVans] = useState([]);
+	const vans = useLoaderData();
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const typeFilter = searchParams.get("type");
@@ -23,31 +28,6 @@ export function VansPage() {
 			return prevParams;
 		});
 	};
-
-	useEffect(() => {
-		async function loadVans() {
-			setLoading(true);
-
-			try {
-				const data = await getVans();
-				setVans(data);
-			} catch (err) {
-				setError(err);
-			} finally {
-				setLoading(false);
-			}
-		}
-
-		loadVans();
-	}, []);
-
-	if (loading) {
-		return <h1>Loading...</h1>;
-	}
-
-	if (error) {
-		return <h1>There was an error: {error.message}</h1>;
-	}
 
 	const vanItem = vansFiltered.map((van) => {
 		return (
@@ -69,7 +49,7 @@ export function VansPage() {
 
 	return (
 		<div className="van-list-container">
-			<h1>Explore ou van options</h1>
+			<h1>Explore our van options</h1>
 			<div className="vans-list-filter-buttons">
 				<button onClick={() => handleFilters("type", "simple")} className={`van-type simple ${typeFilter === "simple" ? "selected" : ""}`}>
 					Simple

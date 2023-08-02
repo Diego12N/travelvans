@@ -1,7 +1,7 @@
 import {Route, createBrowserRouter, createRoutesFromElements} from "react-router-dom";
 import {AboutPage} from "../pages/AboutPage";
 import {HomePage} from "../pages/HomePage";
-import {VansPage} from "../pages/Vans/VansPage";
+import {VansPage, loader as vanPageLoader} from "../pages/Vans/VansPage";
 import {VanDetail} from "../pages/Vans/VanDetail";
 import {Layout} from "../components/Layout";
 import {Dashboard} from "../pages/Host/Dashboard";
@@ -23,7 +23,7 @@ export const router = createBrowserRouter(
 
 			{/* En este caso no necesito un elemente que renderizar ya que las rutas no comparten UI */}
 			<Route path="vans">
-				<Route index element={<VansPage />} />
+				<Route index element={<VansPage />} loader={vanPageLoader} />
 				<Route path=":id" element={<VanDetail />} /> {/*Ruta absoluta es /vans/:id*/}
 			</Route>
 
