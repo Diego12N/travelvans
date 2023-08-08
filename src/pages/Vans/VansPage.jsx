@@ -3,15 +3,14 @@ import {Link, useLoaderData, useSearchParams} from "react-router-dom";
 import {getVans} from "../../api";
 
 export const loader = async () => {
-	const data = await getVans();
-	return data;
+	console.log("cargando data");
+	return await getVans();
 };
 
 export function VansPage() {
 	//const [vans, setVans] = useState([]);
 	const vans = useLoaderData();
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [error, setError] = useState(null);
 
 	const typeFilter = searchParams.get("type");
 
